@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\BarangController;
+use App\Http\Controllers\RiwayatController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,4 +28,13 @@ Route::controller(BarangController::class)->prefix('barang')->group(function(){
     Route::get('edit/{id}', 'edit')->name('barang.edit');
     Route::post('edit/{id}', 'update')->name('barang.tambah.update');
     Route::get('hapus/{id}', 'hapus')->name('barang.hapus');
+});
+
+Route::controller(RiwayatController::class)->prefix('riwayat')->group(function(){
+    Route::get('', 'index')->name('riwayat');
+    Route::get('tambah', 'tambah')->name('riwayat.tambah');
+    Route::post('tambah', 'simpan')->name('riwayat.tambah.simpan');
+    Route::get('edit/{id}', 'edit')->name('riwayaat.edit');
+    Route::post('edit/{id}', 'update')->name('riwayat.tambah.update');
+    Route::get('hapus/{id}', 'hapus')->name('riwayat.hapus');
 });
